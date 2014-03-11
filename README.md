@@ -3,6 +3,9 @@ Heroku Buildpack for Node.js
 
 This is the official [Heroku buildpack](http://devcenter.heroku.com/articles/buildpacks) for Node.js apps. If you fork this repository, please **update this README** to explain what your fork does and why it's special.
 
+###Modified to include html-xml-utils
+This fork includes [html-xml-utils](http://www.w3.org/Tools/HTML-XML-utils/README) so that command line utilities like hxpipe (and many others) are available to node.
+
 
 How it Works
 ------------
