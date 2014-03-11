@@ -50,9 +50,9 @@ curl $htmlxmlutils_url -s -o - | tar xzf - -C $build_dir
 mv $build_dir/html-xml-utils-6.6 $build_dir/vendor/htmlxmlutils
 cd $build_dir/vendor/htmlxmlutils
 mkdir bin
-./configure --prefix=$build_dir
+./configure --prefix=$build_dir/vendor/htmlxmlutils/bin
 make
-make DESTDIR="$build_dir/vendor/htmlxmlutils/bin" install
+make install
 PATH=$PATH:$build_dir/vendor/htmlxmlutils/bin
 
 # Download node from Heroku's S3 mirror of nodejs.org/dist
