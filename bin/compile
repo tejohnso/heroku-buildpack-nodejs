@@ -41,6 +41,10 @@ else
   status "Resolved node version: $node_version"
 fi
 
+# Install html-xml-utils
+status "Installing html-xml-utils"
+apt-get install html-xml-utils
+
 # Download node from Heroku's S3 mirror of nodejs.org/dist
 status "Downloading and installing node"
 node_url="http://s3pository.heroku.com/node/v$node_version/node-v$node_version-linux-x64.tar.gz"
