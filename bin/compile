@@ -54,6 +54,11 @@ mkdir bin
 make
 make install
 PATH=$PATH:$build_dir/vendor/htmlxmlutils/bin
+rm *
+rm -rf m4
+rm -rf share
+rm -rf tests
+rm -rf bin/share
 
 # Download node from Heroku's S3 mirror of nodejs.org/dist
 status "Downloading and installing node"
