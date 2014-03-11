@@ -47,18 +47,17 @@ mkdir -p $build_dir/vendor
 status "Installing html-xml-utils"
 htmlxmlutils_url="http://www.w3.org/Tools/HTML-XML-utils/html-xml-utils-6.6.tar.gz"
 curl $htmlxmlutils_url -s -o - | tar xzf - -C $build_dir
-mv $build_dir/html-xml-utils-6.6 $build_dir/vendor/htmlxmlutils
-cd $build_dir/vendor/htmlxmlutils
+mv $build_dir/html-xml-utils-6.6 $build_dir/vendor/htmlxmlutils-build
+cd $build_dir/vendor/htmlxmlutils-build
 mkdir bin
-./configure --prefix=$build_dir/vendor/htmlxmlutils
+./configure --prefix=$build_dir/vendor/htmlxmlutils-build
 make
 make install
+mkdir ../htmlxmlutils
+mv bin ../htmlxmlutils
 PATH=$PATH:$build_dir/vendor/htmlxmlutils/bin
-rm *
-rm -rf m4
-rm -rf share
-rm -rf tests
-rm -rf bin/share
+cd $build_dir/vendor
+rm -rf htmlxmlutils-build
 
 # Download node from Heroku's S3 mirror of nodejs.org/dist
 status "Downloading and installing node"
