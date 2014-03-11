@@ -50,7 +50,7 @@ curl $htmlxmlutils_url -s -o - | tar xzf - -C $build_dir
 mv $build_dir/html-xml-utils-6.6 $build_dir/vendor/htmlxmlutils
 cd $build_dir/vendor/htmlxmlutils
 mkdir bin
-./configure --prefix=$build_dir/vendor/htmlxmlutils/bin
+./configure --prefix=$build_dir/vendor/htmlxmlutils
 make
 make install
 PATH=$PATH:$build_dir/vendor/htmlxmlutils/bin
