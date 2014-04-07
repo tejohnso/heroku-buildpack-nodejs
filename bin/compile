@@ -59,6 +59,18 @@ PATH=$PATH:$build_dir/vendor/htmlxmlutils/bin
 cd $build_dir/vendor
 rm -rf htmlxmlutils-build
 
+# Install zip 3.0
+status "Installing zip"
+zip_url="ftp://ftp.info-zip.org/pub/infozip/src/zip30.tgz"
+curl $zip_url -s -o - | tar xzf - -C $build_dir
+cd $build_dir/zip30
+make -f unix/Makefile generic
+cd ..
+mkdir -p vendor/zip/bin
+mv zip30/zip vendor/zip/bin
+rm -rf zip30
+PATH=$PATH:$build_dir/vendor/zip/bin
+
 # Download node from Heroku's S3 mirror of nodejs.org/dist
 status "Downloading and installing node"
 node_url="http://s3pository.heroku.com/node/v$node_version/node-v$node_version-linux-x64.tar.gz"
